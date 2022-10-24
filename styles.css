@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root{
+    --purple: #9C9AFF;
+    --orange: #ffce9a;
+    --grey: rgb(118, 118, 118);
+}
+
+body {
+    /* background-color: var(--purple); */
+    background-image: url(./assets/sunset.jpg);
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+}
+
+main {
+    border: solid black 1px;
+    border-radius: 20px;
+    text-align: center;
+    background: rgba( 255, 255, 255, 0.3 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+
+    width: 50%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+hr {
+    border: solid black 0.5px;
+}
+
+form:not(#makePost) {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    font-family: 'Poppins', sans-serif;
+    vertical-align: top;
+    margin: 5px auto;
+    width: 50%;
+    border: solid black 1px;
+    border-radius: 5px;
+    font-size: 25px;
+}
+
+input[type='submit'],input[type='button'] {
+    width: 20%;
+    background-color: var(--purple);
+    color: white;
+}
+
+input[type='submit']:hover,input[type='button']:hover {
+    width: 20%;
+    background-color: white;
+    color: var(--purple);
+}
+
+main p {
+    width: 100%; 
+    text-align: center; 
+    border-bottom: 1px solid #000; 
+    line-height: 0.1em;
+    margin: 10px 0 20px; 
+    font-size: 20px;
+} 
+
+fieldset {
+    border-top: 1px solid black;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    display: block;
+    text-align: center;
+    padding: 0;
+    font-size: 110%;
+}
+
+fieldset legend {
+    padding: 5px 10px;
+}
+
+#makePost {
+    background-color: var(--orange);
+    padding: 15px;
+    border: solid black 1px;
+    border-radius: 10px;
+    width: 50%;
+    margin: auto;
+    position: relative; /**/
+}
+
+textarea {
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    border: solid black 1px;
+    border-radius: 5px;
+    font-size: 20px;
+    resize: none;
+}
+
+#publish {
+    width: 15%;
+}
+
+#out {
+    background-color: var(--purple);
+    color: white;
+    border: solid white 1px;
+    width: 10%;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+
+#out:hover {
+    background-color: white;
+    color: var(--purple);
+}
+
+.post { /*allPosts*/
+    background-color: white;
+    padding: 5px 15px;
+    border: solid black 1px;
+    border-radius: 10px;
+    width: 50%;
+    margin: 15px auto;
+    position: relative; 
+}
+
+/* .author {
+    position: absolute;
+    top: 45px;
+    right: 20px;
+} */
+
+/* Slider stuff below */
+
+/* The switch - the box around the slider */
+.switch {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    width: 60px;
+    height: 34px;
+    padding: 2px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border: solid black 1px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--orange);
+    border: solid white 0.5px;
+    -webkit-transition: .4s;
+    transition: .4s;
+    content: '😎';
+    text-align: center;
+    font-size: 18px;
+}
+
+input:checked + .slider {
+    background-color: var(--grey);
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}

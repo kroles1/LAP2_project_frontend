@@ -114,6 +114,16 @@ input[type='button']#delete {
     color: black;
 }
 
+input[type='submit']#create:hover, input[type='submit']#update:hover {
+    background-color: var(--orange);
+    color: white;
+}
+
+input[type='button']#delete:hover {
+    background-color: grey;
+    color: white;
+}
+
 main {
     border: solid black 1px;
     border-radius: 20px;

@@ -218,9 +218,9 @@ textarea {
 }
 
 #out {
-    background-color: var(--purple);
-    color: white;
-    border: solid white 1px;
+    background-color: var(--lav);
+    color: black;
+    border: solid black 1px;
     width: 10%;
     position: absolute;
     top: 20px;
@@ -229,7 +229,7 @@ textarea {
 
 #out:hover {
     background-color: white;
-    color: var(--purple);
+    color: var(--lav);
 }
 
 /* .author {

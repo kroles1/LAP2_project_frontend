@@ -216,10 +216,6 @@ textarea {
     resize: none;
 }
 
-#publish {
-    width: 15%;
-}
-
 #out {
     background-color: var(--purple);
     color: white;
@@ -235,16 +231,6 @@ textarea {
     color: var(--purple);
 }
 
-.post { /*allPosts*/
-    background-color: white;
-    padding: 5px 15px;
-    border: solid black 1px;
-    border-radius: 10px;
-    width: 50%;
-    margin: 15px auto;
-    position: relative; 
-}
-
 /* .author {
     position: absolute;
     top: 45px;
@@ -258,6 +244,16 @@ textarea {
     padding-right: 20px;
 }
 
-.habitDetails #detailsRight{
+.topLine {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.pencil {
+    margin-top: 10px;
+}
+
+.streak{
     text-align: right;
 }

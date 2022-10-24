@@ -58,13 +58,13 @@ body:not(#dashboard) {
 }
 
 .plus {
-    width: 50px;
+    width: 10%;
     flex-direction: row;
     background-color: var(--easy);
     border: solid 0.5px black;
     border-radius: 10px;
     text-align: center;
-    padding-top: 50px;
+    padding-top: 30px;
     font-size: 250%;
 }
 
@@ -252,12 +252,12 @@ textarea {
 } */
 
 
-#habitDetails {
+.habitDetails {
     width: 90%;
     padding-left: 20px;
     padding-right: 20px;
 }
 
-#habitDetails #detailsRight{
+.habitDetails #detailsRight{
     text-align: right;
 }

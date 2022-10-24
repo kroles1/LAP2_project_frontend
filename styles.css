@@ -126,6 +126,12 @@ input[type='button']#delete:hover {
     color: white;
 }
 
+input[type='number'] {
+    width: 5%;
+    margin: 5px;
+    text-align: center;
+}
+
 main {
     border: solid black 1px;
     border-radius: 20px;
@@ -146,7 +152,7 @@ hr {
     border: solid black 0.5px;
 }
 
-form:not(#makePost) {
+form {
     display: flex;
     flex-direction: column;
 }
@@ -197,16 +203,6 @@ fieldset legend {
     padding: 5px 10px;
 }
 
-#makePost {
-    background-color: var(--orange);
-    padding: 15px;
-    border: solid black 1px;
-    border-radius: 10px;
-    width: 50%;
-    margin: auto;
-    position: relative; /**/
-}
-
 textarea {
     font-family: 'Poppins', sans-serif;
     width: 100%;
@@ -244,10 +240,22 @@ textarea {
     padding-right: 20px;
 }
 
-.topLine {
+.sameLine {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.sameLineReps {
+    font-family: 'Poppins', sans-serif;
+    font-size: 150%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.sameLineReps > label {
+    margin-top: 8px;
 }
 
 .pencil {

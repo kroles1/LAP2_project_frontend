@@ -289,3 +289,8 @@ button.add {
     bottom: 25px;
     right: 25px;
 }
+
+button.add:hover {
+    color: var(--lav);
+    background-color: white;
+}

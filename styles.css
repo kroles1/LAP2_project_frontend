@@ -9,6 +9,7 @@
     --easy: #CCFBC4;
     --medium: #FEDC84;
     --hard: #F99292;
+    --completed: #F0DB1E;
 }
 
 body:not(#dashboard) {

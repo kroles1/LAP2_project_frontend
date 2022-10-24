@@ -68,13 +68,14 @@ body:not(#dashboard) {
     font-size: 250%;
 }
 
-#addHabit {
+#addHabit, #editHabit {
     background-color: var(--lav);
     width: 70%;
     margin: auto;
     border: solid 1px black;
     border-radius: 20px;
     padding-left: 20px;
+    padding-right: 20px;
 }
 
 #difficulty, #frequency {
@@ -256,6 +257,10 @@ textarea {
 
 .sameLineReps > label {
     margin-top: 8px;
+}
+
+.sameLine > input {
+    margin: 5px;
 }
 
 .pencil {

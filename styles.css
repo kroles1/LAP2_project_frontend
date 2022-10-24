@@ -7,6 +7,8 @@
     --blue: #87b5e3;
     --orange: #FF8B59;
     --easy: #CCFBC4;
+    --medium: #FEDC84;
+    --hard: #F99292;
 }
 
 body:not(#dashboard) {
@@ -46,7 +48,7 @@ body:not(#dashboard) {
     height: 30px;
 }
 
-#habit {
+.habit {
     background-color: white;
     border: solid black 1px;
     border-radius: 11px;
@@ -55,13 +57,61 @@ body:not(#dashboard) {
     display: flex;
 }
 
-#plus {
+.plus {
     width: 50px;
     flex-direction: row;
     background-color: var(--easy);
     border: solid 0.5px black;
     border-radius: 10px;
     text-align: center;
+}
+
+#addHabit {
+    background-color: var(--lav);
+    width: 70%;
+    margin: auto;
+    border: solid 1px black;
+    border-radius: 20px;
+    padding-left: 20px;
+}
+
+#difficulty, #frequency {
+    display: flex;
+    justify-content: center;
+}
+
+#difficulty > input[type='button'], #frequency > input[type='button'] {
+    margin: 5px;
+}
+
+input[type='button'].easy {
+    background-color: var(--easy);
+    color: black;
+}
+
+input[type='button'].medium {
+    background-color: var(--medium);
+    color: black;
+}
+
+input[type='button'].hard {
+    background-color: var(--hard);
+    color: black;
+}
+
+input[type='button'].frequency {
+    background-color: white;
+    color: black;
+}
+
+input[type='submit']#create, input[type='submit']#update {
+    background-color: var(--orange);
+    color: black;
+}
+
+input[type='button']#delete {
+    background-color: grey;
+    color: black;
 }
 
 main {

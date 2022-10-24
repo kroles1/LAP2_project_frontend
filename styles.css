@@ -76,6 +76,10 @@ body:not(#dashboard) {
     border-radius: 20px;
     padding-left: 20px;
     padding-right: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #difficulty, #frequency {

@@ -6,7 +6,7 @@
     --green: #93AD92;
     --blue: #87b5e3;
     --orange: #FF8B59;
-    --grey: rgb(118, 118, 118);
+    --easy: #CCFBC4;
 }
 
 body:not(#dashboard) {
@@ -33,16 +33,35 @@ body:not(#dashboard) {
 #expBar {
     background-color: white;
     width: 50%;
-    border-radius: 10px;
+    border: solid black 1px;
+    border-radius: 11px;
 }
 
 #exp {
     background-color: var(--orange);
     width: 75%;
-    border: solid black 1px;
+    border: solid black 0.5px;
     border-radius: 10px;
     margin: 0;
     height: 30px;
+}
+
+#habit {
+    background-color: white;
+    border: solid black 1px;
+    border-radius: 11px;
+    width: 60%;
+    margin: 20px auto;
+    display: flex;
+}
+
+#plus {
+    width: 50px;
+    flex-direction: row;
+    background-color: var(--easy);
+    border: solid 0.5px black;
+    border-radius: 10px;
+    text-align: center;
 }
 
 main {

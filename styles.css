@@ -274,3 +274,23 @@ textarea {
 .streak{
     text-align: right;
 }
+
+button.add {
+    background-color: var(--lav);
+    border: none;
+    color: black;
+    text-align: center;
+    display: inline-block;
+    font-size: 350%;
+    width: 5%;
+    border: solid 1px black;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+}
+
+button.add:hover {
+    color: var(--lav);
+    background-color: white;
+}

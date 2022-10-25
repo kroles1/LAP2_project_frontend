@@ -5,13 +5,13 @@ async function fetchHabitData() {
   try {
     const rawData = await fetch(`http://localhost:3000/users/habits/${id}`); //to be changed
     const habitData = await rawData.json();
-    appanedNewHabit(habitData);
+    appendNewHabit(habitData);
   } catch (err) {
     console.log(err);
   }
 }
 fetchHabitData();
-function appanedNewHabit(habitData) {
+function appendNewHabit(habitData) {
   const { name, difficulty, frequency, reps } = habitData;
   document.getElementById("name").textContent = name;
 
@@ -21,7 +21,7 @@ function appanedNewHabit(habitData) {
   plus.classList.add("plus easy")
   plus.textContent = "+";
   const habitDetails = document.createElement("div");
-  habitDetails.classList.ass("habitDetails");
+  habitDetails.classList.add("habitDetails");
 
   const sameLine = document.createElement("div");
   sameLine.classList.add("sameLine");
@@ -44,7 +44,7 @@ function appanedNewHabit(habitData) {
 // newStreak.innerHTML = streak
 
 //appending
-allHabits.appendChild(habit);
+  allHabits.appendChild(habit);
   habit.appendChild(plus);
   habit.appendChild(habitDetails);
   habitDetails.appendChild(sameLine);

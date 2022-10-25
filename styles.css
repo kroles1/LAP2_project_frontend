@@ -83,34 +83,68 @@ body:not(#dashboard) {
     transform: translate(-50%, -50%);
 }
 
-#difficulty, #frequency {
-    display: flex;
-    justify-content: center;
-}
+/* radio */
 
-#difficulty > input[type='button'], #frequency > input[type='button'] {
-    margin: 5px;
-}
+#activate-easy{display:none}    
 
-input[type='button'].easy {
-    background-color: var(--easy);
-    color: black;
-}
-
-input[type='button'].medium {
-    background-color: var(--medium);
-    color: black;
-}
-
-input[type='button'].hard {
-    background-color: var(--hard);
-    color: black;
-}
-
-input[type='button'].frequency {
+.easy{
     background-color: white;
     color: black;
+    text-align: center;
+    font-size: 150%;
+    border: solid 1px black;
+    border-radius: 5px;
+    margin-right: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+} 
+
+#activate-easy:checked ~ label 
+.easy{
+    background-color: var(--easy);
 }
+
+
+#activate-medium{display:none}    
+
+.medium{
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 150%;
+    border: solid 1px black;
+    border-radius: 5px;
+    margin-right: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+} 
+
+#activate-medium:checked ~ label 
+.medium{
+    background-color:var(--medium);
+}
+
+
+#activate-hard{display:none}    
+
+.hard{
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 150%;
+    border: solid 1px black;
+    border-radius: 5px;
+    margin-right: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+} 
+
+#activate-hard:checked ~ label 
+.hard{
+    background-color:var(--hard);
+}
+
+/*  */
 
 input[type='submit']#create, input[type='submit']#update {
     background-color: var(--orange);
@@ -232,13 +266,6 @@ textarea {
     background-color: white;
     color: var(--lav);
 }
-
-/* .author {
-    position: absolute;
-    top: 45px;
-    right: 20px;
-} */
-
 
 .habitDetails {
     width: 90%;

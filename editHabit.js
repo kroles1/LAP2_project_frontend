@@ -1,26 +1,6 @@
 const editHabitForm = document.getElementById('editHabitForm');
 editHabitForm.addEventListener('submit', editHabit);
 
-const habitName = document.getElementById('name');
-
-const difficulty = document.getElementsByName('difficulty');
-let difficultyValue;
-for (let i = 0; i < difficulty.length; i++) {
-    if (difficulty[i].checked) {
-        difficultyValue = difficulty[i].value;
-    }
-}
-
-const frequency = document.getElementsByName('frequency');
-let frequencyValue;
-for (let i = 0; i < frequency.length; i++) {
-    if (frequency[i].checked) {
-        frequencyValue = frequency[i].value;
-    }
-}
-
-const reps = document.getElementById('reps');
-
 const Delete = document.getElementById('delete');
 Delete.addEventListener('click', deleteHabit);
 
@@ -50,10 +30,10 @@ async function editHabit(e) {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                name: habitName,
-                difficulty: difficultyValue,
-                frequency: frequencyValue,
-                number_of_rep: reps
+                name: e.target.name.value,
+                difficulty: e.target.difficulty.value,
+                frequency: e.target.frequency.value,
+                number_of_rep: e.target.reps.value
             })
         }
         const r = await fetch(`http://localhost:3000/habits/${id}`, options)

@@ -65,8 +65,3 @@ function appendNewHabit(habitData) {
   sameLine.appendChild(newName);
   sameLine.appendChild(pencil);
 }
-
-const addHabit = document.getElementsByClassName('add');
-addHabit.addEventListener('click', () => {
-  location.href = "./addHabit.html";
-})

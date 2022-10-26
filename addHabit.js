@@ -15,12 +15,12 @@ async function submitNewHabit(e) {
           number_of_reps: e.target.reps.value,
         })
     }
-    const newHabit = await fetch("http://localhost:3000/habits", options)
+    const r = await fetch("https://track-it-backend.onrender.com/habits", options)
     const data = await r.json()
     if (data.err){ throw Error(data.err); }
 } catch (err) {
     console.warn(`Error: ${err}`);
 }
 
-  location.href = `http://127.0.0.1:5500/dashboard.html`; //Should connect to the user dashboard
+  // location.href = `https://ittrack.netlify.app/dashboard`; //Should connect to the user dashboard
 }

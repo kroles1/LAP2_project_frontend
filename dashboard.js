@@ -1,9 +1,29 @@
+const userID = localStorage.getItem('userID');
+const level = document.getElementById('level');
+const expAmount = document.getElementById('expAmount');
+const exp = document.getElementById('exp')
+
+async function fetchUserData() {
+  try {
+    const rawData = await fetch(`https://track-it-backend.onrender.com/users/${userID}`);
+    const userData = await rawData.json();
+    const userLevel = userData.level;
+    const userExp = userData.exp;
+    level.textContent = `Level ${userLevel}`;
+    expAmount.textContent = `${userExp} exp`;
+    exp.style.width = `${userExp}%`;
+  } catch (err) {
+    console.log(err);
+  }
+}
+fetchUserData()
+
 const id = localStorage.getItem('id');
 const allHabits = document.getElementById("allHabits");
 
 async function fetchHabitData() {
   try {
-    const rawData = await fetch(`https://track-it-backend.onrender.com/habits/${id}`); //to be changed
+    const rawData = await fetch(`https://track-it-backend.onrender.com/habits/${id}`);
     const habitData = await rawData.json();
     appendNewHabit(habitData);
   } catch (err) {
@@ -11,6 +31,7 @@ async function fetchHabitData() {
   }
 }
 fetchHabitData();
+
 function appendNewHabit(habitData) {
   const { name, difficulty, frequency, streak } = habitData;
   document.getElementById("name").textContent = name;

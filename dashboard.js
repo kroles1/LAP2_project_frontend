@@ -3,7 +3,7 @@ const allHabits = document.getElementById("allHabits");
 
 async function fetchHabitData() {
   try {
-    const rawData = await fetch(`http://localhost:3000/users/habits/${id}`); //to be changed
+    const rawData = await fetch(`https://track-it-backend.onrender.com/habits/${id}`); //to be changed
     const habitData = await rawData.json();
     appendNewHabit(habitData);
   } catch (err) {
@@ -12,13 +12,24 @@ async function fetchHabitData() {
 }
 fetchHabitData();
 function appendNewHabit(habitData) {
-  const { name, difficulty, frequency, reps } = habitData;
+  const { name, difficulty, frequency, streak } = habitData;
   document.getElementById("name").textContent = name;
 
   const habit = document.createElement("div");
   habit.classList.add("habit");
   const plus= document.createElement("div");
-  plus.classList.add("plus easy")
+  // plus.classList.add("plus easy")
+  plus.classList.add("plus")
+  switch(difficulty){
+    case 'e':
+      plus.classList.add('easy')
+      break;
+    case 'm':
+      plus.classList.add('medium')
+      break;
+    case 'h':
+      plus.classList.add('hard')
+  }
   plus.textContent = "+";
   const habitDetails = document.createElement("div");
   habitDetails.classList.add("habitDetails");
@@ -37,17 +48,25 @@ function appendNewHabit(habitData) {
     localStorage.setItem("id", habit.id); //to fix the path
     // go to editHabit.html
     setTimeout(() => {
-        location.href = "editHabit.html";
+        location.href = "./editHabit.html";
     }, 250);
 });
-// const newStreak = document.createElement("p");
-// newStreak.innerHTML = streak
+  const displayedStreak = document.createElement("p");
+  displayedStreak.classList.add('streak');
+  const freq = frequency.toUpperCase();
+  displayedStreak.textContent = `${freq} ${streak} 🔥`;
 
 //appending
   allHabits.appendChild(habit);
   habit.appendChild(plus);
   habit.appendChild(habitDetails);
   habitDetails.appendChild(sameLine);
+  habitDetails.appendChild(displayedStreak);
   sameLine.appendChild(newName);
   sameLine.appendChild(pencil);
 }
+
+const addHabit = document.getElementsByClassName('add');
+addHabit.addEventListener('click', () => {
+  location.href = "./addHabit.html";
+})

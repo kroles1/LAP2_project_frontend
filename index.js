@@ -9,7 +9,7 @@ async function requestLogin(e) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
         }
-        const r = await fetch(`http://localhost:3000/auth/login`, options)
+        const r = await fetch(`https://track-it-backend.onrender.com/auth`, options)
         const data = await r.json()
         if (data.err){ throw Error(data.err); }
         login(data);
@@ -23,5 +23,6 @@ function login(data){
     localStorage.setItem('token', data.token)
     localStorage.setItem('username', payload.username)
     localStorage.setItem('email', payload.email)
-    location.href = './dashboard.html';
+    localStorage.setItem('userId', payload.id)
+    location.href = 'https://ittrack.netlify.app/dashboard';
 }

@@ -9,7 +9,7 @@ async function requestRegistration(e) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
         }
-        const r = await fetch(`http://localhost:3000/auth/register`, options)
+        const r = await fetch(`https://track-it-backend.onrender.com/auth`, options)
         const data = await r.json()
         if (data.err){ throw Error(data.err) }
         requestLogin(e);

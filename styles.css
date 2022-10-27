@@ -77,6 +77,18 @@ body:not(#dashboard) {
     font-size: 250%;
 }
 
+.easyPlus {
+    background-color: var(--easy);
+}
+
+.medPlus {
+    background-color: var(--medium);
+}
+
+.hardPlus {
+    background-color: var(--hard);
+}
+
 #addHabit, #editHabit {
     background-color: var(--lav);
     width: 70%;

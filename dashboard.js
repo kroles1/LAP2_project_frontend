@@ -53,38 +53,43 @@ async function fetchHabitData() {
 fetchHabitData();
 
 function appendNewHabit(habitData) {
-  const { name, difficulty, frequency, streak } = habitData;
+  const { name, difficulty, frequency, streak } = habitData[0];
   console.log(habitData)
-  document.getElementById("name").textContent = name;
+  console.log('====================================');
+  console.log(name, difficulty, frequency, streak);
+  console.log('====================================');
 
   const habit = document.createElement("div");
   habit.classList.add("habit");
-  const plus= document.createElement("div");
-  // plus.classList.add("plus easy")
+
+  const plus = document.createElement("div");
   plus.classList.add("plus")
   switch(difficulty){
     case 'easy':
-      plus.classList.add('easy')
+      plus.classList.add('easyPlus')
       break;
     case 'medium':
-      plus.classList.add('medium')
+      plus.classList.add('medPlus')
       break;
     case 'hard':
-      plus.classList.add('hard')
+      plus.classList.add('hardPlus')
   }
   plus.textContent = "+";
+
   const habitDetails = document.createElement("div");
   habitDetails.classList.add("habitDetails");
 
   const sameLine = document.createElement("div");
   sameLine.classList.add("sameLine");
-  const newName = document.createElement("h3");
-  newName.textContent = name;
+
+  const habitName = document.createElement("h3");
+  habitName.textContent = name;
+
   const pencil = document.createElement("img");
   pencil.src = "./assets/pencil.png";
   pencil.alt = "edit habit icon";
-  pencil.style.width = "40";
-  pencil.style.height = "40";
+  pencil.style.width = "40px";
+  pencil.style.height = "40px";
   pencil.addEventListener("click", () => {
     // Store
     localStorage.setItem("id", habit.id); //to fix the path
@@ -95,8 +100,8 @@ function appendNewHabit(habitData) {
 });
   const displayedStreak = document.createElement("p");
   displayedStreak.classList.add('streak');
-  const freq = frequency.toUpperCase();
-  displayedStreak.textContent = `${freq} ${streak} 🔥`;
+  // const freq = frequency.toUpperCase();
+  displayedStreak.textContent = `${frequency.toUpperCase()} ${streak} 🔥`;
 
 //appending
   allHabits.appendChild(habit);
@@ -104,7 +109,7 @@ function appendNewHabit(habitData) {
   habit.appendChild(habitDetails);
   habitDetails.appendChild(sameLine);
   habitDetails.appendChild(displayedStreak);
-  sameLine.appendChild(newName);
+  sameLine.appendChild(habitName);
   sameLine.appendChild(pencil);
 }
 

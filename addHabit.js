@@ -4,15 +4,22 @@ addHabitForm.addEventListener("submit", submitNewHabit);
 
 async function submitNewHabit(e) {
   e.preventDefault();
+  console.log('====================================');
+  console.log(e.target.name.value);
+  console.log(e.target.difficulty.value);
+  console.log(e.target.frequency.value);
+  console.log(e.target.reps.value);
+  console.log('====================================');
   try {
     const options = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 
+        authorization:`Bearer ${localStorage.getItem('token')}` },
         body: JSON.stringify({
           name: e.target.name.value,
           difficulty: e.target.difficulty.value,
           frequency: e.target.frequency.value,
-          number_of_reps: e.target.reps.value,
+          number_of_rep: e.target.reps.value,
         })
     }
     const r = await fetch("http://localhost:3000/habits", options)

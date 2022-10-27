@@ -35,11 +35,12 @@ async function fetchHabitData() {
     console.log(rawData);
     if(rawData.ok) {
       const habitData = await rawData.json();
+      noHabits.classList.toggle('hide')
       console.log(habitData);
       appendNewHabit(habitData);
     } else {
       console.log('No habits to append');
-      noHabits.classList.toggle('hide')
+      noHabits.classList.remove('hide')
     }
     // const habitData = await rawData.json();
     // console.log(habitData);
@@ -53,6 +54,7 @@ fetchHabitData();
 
 function appendNewHabit(habitData) {
   const { name, difficulty, frequency, streak } = habitData;
+  console.log(habitData)
   document.getElementById("name").textContent = name;
 
   const habit = document.createElement("div");
@@ -61,13 +63,13 @@ function appendNewHabit(habitData) {
   // plus.classList.add("plus easy")
   plus.classList.add("plus")
   switch(difficulty){
-    case 'e':
+    case 'easy':
       plus.classList.add('easy')
       break;
-    case 'm':
+    case 'medium':
       plus.classList.add('medium')
       break;
-    case 'h':
+    case 'hard':
       plus.classList.add('hard')
   }
   plus.textContent = "+";

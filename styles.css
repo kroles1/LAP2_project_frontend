@@ -48,7 +48,7 @@ body:not(#dashboard) {
     height: 30px;
 }
 
-.habit, .noHabits {
+.habit, #noHabits {
     background-color: white;
     border: solid black 1px;
     border-radius: 11px;
@@ -57,7 +57,7 @@ body:not(#dashboard) {
     display: flex;
 }
 
-.noHabits {
+#noHabits {
     display: flex;
     flex-direction: column;
     padding: 20px;

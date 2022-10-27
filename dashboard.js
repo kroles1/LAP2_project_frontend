@@ -56,7 +56,7 @@ async function fetchHabitData() {
 fetchHabitData();
 
 function appendNewHabit(habitData) {
-    const { id, name, difficulty, frequency, streak } = habitData;
+    const { id, name, difficulty, frequency, streak, number_of_rep } = habitData;
     const habit = document.createElement("div");
     habit.classList.add("habit");
 
@@ -91,7 +91,7 @@ function appendNewHabit(habitData) {
     sameLine.classList.add("sameLine");
 
     const habitName = document.createElement("h3");
-    habitName.textContent = name;
+    habitName.textContent = `${name} (x ${number_of_rep})`;
 
     const pencil = document.createElement("img");
     pencil.src = "./assets/pencil.png";

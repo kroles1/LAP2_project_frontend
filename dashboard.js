@@ -61,14 +61,20 @@ function appendNewHabit(habitData) {
     const plus = document.createElement("div");
     plus.classList.add("plus")
     switch(difficulty){
-      case 'easy':
+      case 'e':
         plus.classList.add('easyPlus')
+        plus.classList.remove('medPlus')
+        plus.classList.remove('hardPlus')
         break;
-      case 'medium':
+      case 'm':
         plus.classList.add('medPlus')
+        plus.classList.remove('easyPlus')
+        plus.classList.remove('hardPlus')
         break;
-      case 'hard':
+      case 'h':
         plus.classList.add('hardPlus')
+        plus.classList.remove('medPlus')
+        plus.classList.remove('easyPlus')
     }
     plus.textContent = "+";
 

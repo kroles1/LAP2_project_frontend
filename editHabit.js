@@ -30,7 +30,8 @@ async function editHabit(e) {
     try {
         const options = {
             method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json', 
+            authorization:`Bearer ${localStorage.getItem('token')}` },
             body: JSON.stringify({
                 name: e.target.name.value,
                 difficulty: e.target.difficulty.value,

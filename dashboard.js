@@ -54,7 +54,7 @@ fetchHabitData();
 
 function appendNewHabit(habitData) {
   for (let i = 0; i < habitData.length; i++) {
-    const { name, difficulty, frequency, streak } = habitData[i];
+    const { id, name, difficulty, frequency, streak } = habitData[i];
     const habit = document.createElement("div");
     habit.classList.add("habit");
 
@@ -88,7 +88,7 @@ function appendNewHabit(habitData) {
     pencil.style.height = "40px";
     pencil.addEventListener("click", () => {
       // Store
-      localStorage.setItem("id", habit.id); //to fix the path
+      localStorage.setItem("id", id); //to fix the path
       // go to editHabit.html
       setTimeout(() => {
           location.href = "./editHabit.html";

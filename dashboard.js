@@ -21,27 +21,32 @@ fetchUserData()
 const id = localStorage.getItem('id');
 const allHabits = document.getElementById("allHabits");
 
+const noHabits = document.getElementById("noHabits");
+
 async function fetchHabitData() {
   try {
     // const rawData = await fetch(`http://localhost:3000/habits/${id}`);
     const options = {
       method: 'GET',
-      headers: { authorization:localStorage.getItem('token') },
+      headers: { authorization:`Bearer ${localStorage.getItem('token')}` },
       // body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
   }
-  const rawData = await fetch(`http://localhost:3000/habits`, options)
+    const rawData = await fetch(`http://localhost:3000/habits`, options)
     console.log(rawData);
     if(rawData.ok) {
       const habitData = await rawData.json();
       console.log(habitData);
       appendNewHabit(habitData);
-    } 
+    } else {
+      console.log('No habits to append');
+      noHabits.classList.toggle('hide')
+    }
     // const habitData = await rawData.json();
     // console.log(habitData);
     // appendNewHabit(habitData);
   } catch (err) {
     console.log('catching error')
-    console.log(err);
+    console.log(err.message);
   }
 }
 fetchHabitData();

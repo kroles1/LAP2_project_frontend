@@ -42,8 +42,7 @@ body:not(#dashboard) {
 
 #exp {
     background-color: var(--orange);
-    width: 75%;
-    border: solid black 0.5px;
+    width: 0;
     border-radius: 10px;
     margin: 0;
     height: 30px;

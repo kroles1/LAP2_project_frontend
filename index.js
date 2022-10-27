@@ -5,15 +5,15 @@ async function requestLogin(e) {
     e.preventDefault();
     try {
         const options = {
-            method: 'GET',
+            method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
-            // body: JSON.stringify({
-            //     email: e.target.email.value,
-            //     password: e.target.password.value
-            // })
+            // body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
+            body: JSON.stringify({
+                email: e.target.email.value,
+                password: e.target.password.value
+            })
         }
-        const r = await fetch(`http://localhost:3000/auth`, options)
+        const r = await fetch(`http://localhost:3000/auth/login`, options)
         const data = await r.json()
         if (data.err){ throw Error(data.err); }
         login(data);
@@ -25,8 +25,8 @@ async function requestLogin(e) {
 function login(data){
     const payload = jwt_decode(data.token);
     localStorage.setItem('token', data.token)
-    localStorage.setItem('username', payload.username)
-    localStorage.setItem('email', payload.email)
+    // localStorage.setItem('username', payload.username)
+    // localStorage.setItem('email', payload.email)
     localStorage.setItem('userId', payload.id)
-    location.href = 'http://localhost:3000/dashboard';
+    location.href = 'http://localhost:5500/dashboard.html';
 }

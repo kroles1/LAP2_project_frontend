@@ -1,11 +1,11 @@
-const userID = localStorage.getItem('userID');
+const userID = localStorage.getItem('userId');
 const level = document.getElementById('level');
 const expAmount = document.getElementById('expAmount');
 const exp = document.getElementById('exp')
 
 async function fetchUserData() {
   try {
-    const rawData = await fetch(`https://track-it-habit-backend.herokuapp.com/users/${userID}`);
+    const rawData = await fetch(`http://localhost:3000/users/${userID}`);
     const userData = await rawData.json();
     const userLevel = userData.level;
     const userExp = userData.exp;
@@ -23,10 +23,24 @@ const allHabits = document.getElementById("allHabits");
 
 async function fetchHabitData() {
   try {
-    const rawData = await fetch(`https://track-it-habit-backend.herokuapp.com/habits/${id}`);
-    const habitData = await rawData.json();
-    appendNewHabit(habitData);
+    // const rawData = await fetch(`http://localhost:3000/habits/${id}`);
+    const options = {
+      method: 'GET',
+      headers: { authorization:localStorage.getItem('token') },
+      // body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
+  }
+  const rawData = await fetch(`http://localhost:3000/habits`, options)
+    console.log(rawData);
+    if(rawData.ok) {
+      const habitData = await rawData.json();
+      console.log(habitData);
+      appendNewHabit(habitData);
+    } 
+    // const habitData = await rawData.json();
+    // console.log(habitData);
+    // appendNewHabit(habitData);
   } catch (err) {
+    console.log('catching error')
     console.log(err);
   }
 }
@@ -86,3 +100,9 @@ function appendNewHabit(habitData) {
   sameLine.appendChild(newName);
   sameLine.appendChild(pencil);
 }
+
+const logOut = document.getElementById('out');
+logOut.addEventListener('click', () => {
+  window.location.href='./index.html';
+  localStorage.clear();
+})

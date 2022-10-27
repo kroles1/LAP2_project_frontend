@@ -197,12 +197,21 @@ div#difficulty, div#frequency {
 
 /*  */
 
-input[type='submit']#create, input[type='submit']#update, #firstHabit {
+input[type='submit']#create, input[type='submit']#update {
     background-color: var(--orange);
     color: black;
     border: solid 1px black;
     border-radius: 5px;
     font-size: 150%;
+    padding: 5px 20px;
+}
+
+#firstHabit {
+    background-color: var(--lav);
+    color: black;
+    border: solid 1px black;
+    border-radius: 5px;
+    font-size: 100%;
     padding: 5px 20px;
 }
 

@@ -12,6 +12,7 @@ async function deleteHabit(e) {
         try {
             const r = await fetch(`http://localhost:3000/habits/${id}`, {
                 method: 'DELETE',
+                headers: {  authorization:`Bearer ${localStorage.getItem('token')}` }
             });
             if (r.err){ 
                 throw Error(r.err); 

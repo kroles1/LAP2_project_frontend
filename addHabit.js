@@ -15,7 +15,7 @@ async function submitNewHabit(e) {
           number_of_reps: e.target.reps.value,
         })
     }
-    const r = await fetch("https://track-it-habit-backend.herokuapp.com/", options)
+    const r = await fetch("http://localhost:3000/habits", options)
     const data = await r.json()
     if (data.err){ throw Error(data.err); }
 } catch (err) {

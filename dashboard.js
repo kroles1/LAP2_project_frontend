@@ -86,6 +86,7 @@ function appendNewHabit(habitData) {
         updateExp(localStorage.getItem('id'));
       });
       habit.classList.remove('completed')
+      plus.classList.remove('completed')
     } else {
       plus.classList.remove('easyPlus')
       plus.classList.remove('medPlus')

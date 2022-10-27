@@ -70,7 +70,7 @@ body:not(#dashboard) {
     width: 10%;
     flex-direction: row;
     background-color: var(--easy);
-    border: solid 0.5px black;
+    border: solid 1px black;
     border-radius: 10px;
     text-align: center;
     padding-top: 30px;

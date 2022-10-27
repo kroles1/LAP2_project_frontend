@@ -7,6 +7,7 @@ async function fetchUserData() {
   try {
     const rawData = await fetch(`http://localhost:3000/users/${userID}`);
     const userData = await rawData.json();
+    console.log(userData)
     const userLevel = userData.level;
     const userExp = userData.exp;
     level.textContent = `Level ${userLevel}`;
@@ -30,14 +31,16 @@ async function fetchHabitData() {
       method: 'GET',
       headers: { authorization:`Bearer ${localStorage.getItem('token')}` },
       // body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
-  }
+    }
     const rawData = await fetch(`http://localhost:3000/habits`, options)
     console.log(rawData);
     if(rawData.ok) {
-      const habitData = await rawData.json();
+      const habitsData = await rawData.json();
       noHabits.classList.toggle('hide')
-      console.log(habitData);
-      appendNewHabit(habitData);
+      console.log(habitsData);
+      habitsData.forEach(habit => {
+        appendNewHabit(habit);
+      })
     } else {
       console.log('No habits to append');
       noHabits.classList.remove('hide')
@@ -53,30 +56,32 @@ async function fetchHabitData() {
 fetchHabitData();
 
 function appendNewHabit(habitData) {
-  for (let i = 0; i < habitData.length; i++) {
-    const { id, name, difficulty, frequency, streak } = habitData[i];
+    const { id, name, difficulty, frequency, streak } = habitData;
     const habit = document.createElement("div");
     habit.classList.add("habit");
 
     const plus = document.createElement("div");
     plus.classList.add("plus")
     switch(difficulty){
-      case 'e':
+      case 'easy':
         plus.classList.add('easyPlus')
         plus.classList.remove('medPlus')
         plus.classList.remove('hardPlus')
         break;
-      case 'm':
+      case 'medium':
         plus.classList.add('medPlus')
         plus.classList.remove('easyPlus')
         plus.classList.remove('hardPlus')
         break;
-      case 'h':
+      case 'hard':
         plus.classList.add('hardPlus')
         plus.classList.remove('medPlus')
         plus.classList.remove('easyPlus')
     }
     plus.textContent = "+";
+    plus.addEventListener("click", () => { 
+      updateExp(userID);
+    });
 
     const habitDetails = document.createElement("div");
     habitDetails.classList.add("habitDetails");
@@ -113,7 +118,6 @@ function appendNewHabit(habitData) {
     habitDetails.appendChild(displayedStreak);
     sameLine.appendChild(habitName);
     sameLine.appendChild(pencil);
-  }
 }
 
 const logOut = document.getElementById('out');
@@ -121,3 +125,23 @@ logOut.addEventListener('click', () => {
   window.location.href='./index.html';
   localStorage.clear();
 })
+
+async function updateExp(id) {
+  try {
+      const options = {
+          method: 'PATCH',
+          headers: {  authorization:`Bearer ${localStorage.getItem('token')}` },
+      }
+      const r = await fetch(`http://localhost:3000/habits/${id}`, options)
+      console.log(r)
+      const data = await r.json()
+      console.log(data)
+      if(data.streak === 1){
+// need to call function to update user level, exp
+        fetchUserData()
+      }
+      if (data.err){ throw Error(data.err); }
+  } catch (err) {
+      console.warn(`Error: ${err}`);
+  }
+}

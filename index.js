@@ -5,11 +5,11 @@ async function requestLogin(e) {
     e.preventDefault();
     try {
         const options = {
-            method: 'POST',
+            method: 'GET',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
         }
-        const r = await fetch(`https://track-it-backend.onrender.com/auth`, options)
+        const r = await fetch(`https://track-it-habit-backend.herokuapp.com/auth`, options)
         const data = await r.json()
         if (data.err){ throw Error(data.err); }
         login(data);

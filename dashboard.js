@@ -5,7 +5,7 @@ const exp = document.getElementById('exp')
 
 async function fetchUserData() {
   try {
-    const rawData = await fetch(`https://track-it-backend.onrender.com/users/${userID}`);
+    const rawData = await fetch(`https://track-it-habit-backend.herokuapp.com/users/${userID}`);
     const userData = await rawData.json();
     const userLevel = userData.level;
     const userExp = userData.exp;
@@ -23,7 +23,7 @@ const allHabits = document.getElementById("allHabits");
 
 async function fetchHabitData() {
   try {
-    const rawData = await fetch(`https://track-it-backend.onrender.com/habits/${id}`);
+    const rawData = await fetch(`https://track-it-habit-backend.herokuapp.com/habits/${id}`);
     const habitData = await rawData.json();
     appendNewHabit(habitData);
   } catch (err) {

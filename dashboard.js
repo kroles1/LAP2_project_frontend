@@ -80,7 +80,8 @@ function appendNewHabit(habitData) {
     }
     plus.textContent = "+";
     plus.addEventListener("click", () => { 
-      updateExp(userID);
+      localStorage.setItem("id", id)
+      updateExp(localStorage.getItem('id'));
     });
 
     const habitDetails = document.createElement("div");
@@ -107,8 +108,9 @@ function appendNewHabit(habitData) {
   });
     const displayedStreak = document.createElement("p");
     displayedStreak.classList.add('streak');
-    // const freq = frequency.toUpperCase();
+    // const span = document.createElement('span')
     displayedStreak.textContent = `${frequency.toUpperCase()} ${streak} 🔥`;
+    // span.appendChild(displayedStreak)
 
   //appending
     allHabits.appendChild(habit);
@@ -139,6 +141,8 @@ async function updateExp(id) {
       if(data.streak === 1){
 // need to call function to update user level, exp
         fetchUserData()
+        document.getElementsByClassName('streak').textContent = `${data.frequency.toUpperCase()} ${data.streak} 🔥`;
+        location.reload()
       }
       if (data.err){ throw Error(data.err); }
   } catch (err) {

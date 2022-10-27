@@ -56,12 +56,13 @@ async function fetchHabitData() {
 fetchHabitData();
 
 function appendNewHabit(habitData) {
-    const { id, name, difficulty, frequency, streak, number_of_rep } = habitData;
+    const { id, name, difficulty, frequency, streak, number_of_rep, completed } = habitData;
     const habit = document.createElement("div");
     habit.classList.add("habit");
 
     const plus = document.createElement("div");
     plus.classList.add("plus")
+    plus.setAttribute('id', id)
     switch(difficulty){
       case 'easy':
         plus.classList.add('easyPlus')
@@ -79,10 +80,19 @@ function appendNewHabit(habitData) {
         plus.classList.remove('easyPlus')
     }
     plus.textContent = "+";
-    plus.addEventListener("click", () => { 
-      localStorage.setItem("id", id)
-      updateExp(localStorage.getItem('id'));
-    });
+    if(!completed) {
+      plus.addEventListener("click", () => { 
+        localStorage.setItem("id", id)
+        updateExp(localStorage.getItem('id'));
+      });
+      habit.classList.remove('completed')
+    } else {
+      plus.classList.remove('easyPlus')
+      plus.classList.remove('medPlus')
+      plus.classList.remove('hardPlus')
+      habit.classList.add('completed')
+      plus.classList.add('completed')
+    }
 
     const habitDetails = document.createElement("div");
     habitDetails.classList.add("habitDetails");
@@ -129,6 +139,8 @@ logOut.addEventListener('click', () => {
 })
 
 async function updateExp(id) {
+  console.log('***********')
+  console.log('called event listener')
   try {
       const options = {
           method: 'PATCH',
@@ -138,10 +150,12 @@ async function updateExp(id) {
       console.log(r)
       const data = await r.json()
       console.log(data)
-      if(data.streak === 1){
+      if(data.completed){
 // need to call function to update user level, exp
         fetchUserData()
         document.getElementsByClassName('streak').textContent = `${data.frequency.toUpperCase()} ${data.streak} 🔥`;
+        const plusButton = document.getElementById(id);
+        plusButton.replaceWith(plusButton.cloneNode(true));
         location.reload()
       }
       if (data.err){ throw Error(data.err); }

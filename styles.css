@@ -89,6 +89,10 @@ body:not(#dashboard) {
     background-color: var(--hard);
 }
 
+.completed {
+    background-color: var(--completed);
+}
+
 #addHabit, #editHabit {
     background-color: var(--lav);
     width: 70%;

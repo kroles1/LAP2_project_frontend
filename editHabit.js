@@ -18,6 +18,7 @@ async function deleteHabit(e) {
                 throw Error(r.err); 
             } else {
                 alert('Deleted habit.');
+                window.location.href='./dashboard.html';
             }
         } catch (err) {
             console.warn(`Error: ${err}`);
@@ -42,6 +43,7 @@ async function editHabit(e) {
         const r = await fetch(`http://localhost:3000/habits/${id}`, options)
         const data = await r.json()
         if (data.err){ throw Error(data.err); }
+        window.location.href='./dashboard.html';
     } catch (err) {
         console.warn(`Error: ${err}`);
     }

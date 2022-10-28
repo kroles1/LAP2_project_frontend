@@ -1,3 +1,6 @@
+const dotenv = require('dotenv');
+dotenv.config();
+
 const addHabitForm = document.getElementById("addHabitForm");
 
 addHabitForm.addEventListener("submit", submitNewHabit);
@@ -22,7 +25,7 @@ async function submitNewHabit(e) {
           number_of_rep: e.target.reps.value,
         })
     }
-    const r = await fetch("http://localhost:3000/habits", options)
+    const r = await fetch(`${process.env.BACKEND}/habits`, options)
     const data = await r.json()
     if (data.err){ throw Error(data.err); }
     window.location.href='./dashboard.html';

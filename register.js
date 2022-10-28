@@ -1,3 +1,6 @@
+const dotenv = require('dotenv');
+dotenv.config();
+
 const registerForm = document.getElementById('registerForm');
 registerForm.addEventListener('submit', requestRegistration);
 
@@ -14,7 +17,7 @@ async function requestRegistration(e) {
                 password: e.target.password.value
             })
         }
-        const r = await fetch(`http://localhost:3000/auth/register`, options)
+        const r = await fetch(`${process.env.BACKEND}/auth/register`, options)
         const data = await r.json()
         if (data.err){ throw Error(data.err) }
         else { 

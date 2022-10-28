@@ -407,3 +407,11 @@ button.add:hover {
 .hide {
     display: none !important;
 }
+
+
+#name {
+    width: 444px;
+}
+.easy, .medium, .hard, .daily, .weekly, .monthly {
+    width: 138px;
+}

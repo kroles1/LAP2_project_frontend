@@ -1,6 +1,3 @@
-const dotenv = require('dotenv');
-dotenv.config();
-
 const loginForm = document.getElementById('loginForm');
 loginForm.addEventListener('submit', requestLogin);
 

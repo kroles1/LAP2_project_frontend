@@ -1,6 +1,3 @@
-const dotenv = require('dotenv');
-dotenv.config();
-
 const registerForm = document.getElementById('registerForm');
 registerForm.addEventListener('submit', requestRegistration);
 

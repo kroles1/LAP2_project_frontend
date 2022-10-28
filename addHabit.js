@@ -1,6 +1,3 @@
-const dotenv = require('dotenv');
-dotenv.config();
-
 const addHabitForm = document.getElementById("addHabitForm");
 
 addHabitForm.addEventListener("submit", submitNewHabit);

@@ -1,6 +1,3 @@
-const dotenv = require('dotenv');
-dotenv.config();
-
 const userID = localStorage.getItem('userId');
 const level = document.getElementById('level');
 const expAmount = document.getElementById('expAmount');

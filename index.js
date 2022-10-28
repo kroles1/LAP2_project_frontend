@@ -28,5 +28,5 @@ function login(data){
     // localStorage.setItem('username', payload.username)
     // localStorage.setItem('email', payload.email)
     localStorage.setItem('userId', payload.id)
-    location.href = `https://ittrack.netlify.app/dashboard.html`;
+    location.href = `./dashboard.html`;
 }

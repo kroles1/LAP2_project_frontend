@@ -63,6 +63,7 @@ function appendNewHabit(habitData) {
     const plus = document.createElement("div");
     plus.classList.add("plus")
     plus.setAttribute('id', id)
+    console.log(difficulty);
     switch(difficulty){
       case 'easy':
         plus.classList.add('easyPlus')
@@ -116,7 +117,7 @@ function appendNewHabit(habitData) {
       localStorage.setItem("id", id); //to fix the path
       // go to editHabit.html
       setTimeout(() => {
-          location.href = `https://ittrack.netlify.app/editHabit.html`;
+          location.href = `./editHabit.html`;
       }, 250);
   });
     const displayedStreak = document.createElement("p");
@@ -137,7 +138,7 @@ function appendNewHabit(habitData) {
 
 const logOut = document.getElementById('out');
 logOut.addEventListener('click', () => {
-  window.location.href=`https://ittrack.netlify.app/`;
+  location.href=`./`;
   localStorage.clear();
 })
 

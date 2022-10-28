@@ -95,6 +95,7 @@ body:not(#dashboard) {
 
 .plus:hover {
     color: white;
+    cursor: pointer;
 }
 
 #addHabit, #editHabit {

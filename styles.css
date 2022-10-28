@@ -147,7 +147,6 @@ div#difficulty, div#frequency {
     text-align: center;
     font-size: 150%;
     border: solid 1px black;
-    /* border-radius: 5px; */
     margin-right: 0;
     padding-left: 5px;
     padding-right: 5px;
@@ -168,7 +167,6 @@ div#difficulty, div#frequency {
     font-size: 150%;
     border: solid 1px black;
     border-radius: 0 5px 5px 0;
-    margin-right: 5px;
     padding-left: 5px;
     padding-right: 5px;
 } 

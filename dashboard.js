@@ -8,7 +8,7 @@ const exp = document.getElementById('exp')
 
 async function fetchUserData() {
   try {
-    const rawData = await fetch(`${process.env.BACKEND}/users/${userID}`);
+    const rawData = await fetch(`https://track-it-habit-backend.herokuapp.com/users/${userID}`);
     const userData = await rawData.json();
     console.log(userData)
     const userLevel = userData.level;
@@ -35,7 +35,7 @@ async function fetchHabitData() {
       headers: { authorization:`Bearer ${localStorage.getItem('token')}` },
       // body: JSON.stringify(Object.fromEntries(new FormData(e.target)))
     }
-    const rawData = await fetch(`${process.env.BACKEND}/habits`, options)
+    const rawData = await fetch(`https://track-it-habit-backend.herokuapp.com/habits`, options)
     console.log(rawData);
     if(rawData.ok) {
       const habitsData = await rawData.json();
@@ -118,7 +118,7 @@ function appendNewHabit(habitData) {
       localStorage.setItem("id", id); //to fix the path
       // go to editHabit.html
       setTimeout(() => {
-          location.href = "./editHabit.html";
+          location.href = `https://ittrack.netlify.app/editHabit.html`;
       }, 250);
   });
     const displayedStreak = document.createElement("p");
@@ -139,7 +139,7 @@ function appendNewHabit(habitData) {
 
 const logOut = document.getElementById('out');
 logOut.addEventListener('click', () => {
-  window.location.href='./index.html';
+  window.location.href=`https://ittrack.netlify.app/`;
   localStorage.clear();
 })
 
@@ -151,7 +151,7 @@ async function updateExp(id) {
           method: 'PATCH',
           headers: {  authorization:`Bearer ${localStorage.getItem('token')}` },
       }
-      const r = await fetch(`${process.env.BACKEND}/habits/${id}`, options)
+      const r = await fetch(`https://track-it-habit-backend.herokuapp.com/habits/${id}`, options)
       console.log(r)
       const data = await r.json()
       console.log(data)

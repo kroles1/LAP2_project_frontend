@@ -17,11 +17,11 @@ async function requestRegistration(e) {
                 password: e.target.password.value
             })
         }
-        const r = await fetch(`${process.env.BACKEND}/auth/register`, options)
+        const r = await fetch(`https://track-it-habit-backend.herokuapp.com/auth/register`, options)
         const data = await r.json()
         if (data.err){ throw Error(data.err) }
         else { 
-            window.location.href='./index.html';
+            window.location.href=`https://ittrack.netlify.app/index.html`;
             window.alert('Registration success! Please login.') 
         }
     } catch (err) {

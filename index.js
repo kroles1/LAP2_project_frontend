@@ -16,7 +16,7 @@ async function requestLogin(e) {
                 password: e.target.password.value
             })
         }
-        const r = await fetch(`${process.env.BACKEND}/auth/login`, options)
+        const r = await fetch(`https://track-it-habit-backend.herokuapp.com/auth/login`, options)
         const data = await r.json()
         if (data.err){ throw Error(data.err); }
         login(data);
@@ -31,5 +31,5 @@ function login(data){
     // localStorage.setItem('username', payload.username)
     // localStorage.setItem('email', payload.email)
     localStorage.setItem('userId', payload.id)
-    location.href = './dashboard.html';
+    location.href = `https://ittrack.netlify.app/dashboard.html`;
 }

@@ -13,7 +13,7 @@ async function deleteHabit(e) {
     e.preventDefault();
     if(confirm('Are you sure you want to delete this habit?')) {
         try {
-            const r = await fetch(`${process.env.BACKEND}/habits/${id}`, {
+            const r = await fetch(`https://track-it-habit-backend.herokuapp.com/habits/${id}`, {
                 method: 'DELETE',
                 headers: {  authorization:`Bearer ${localStorage.getItem('token')}` }
             });
@@ -21,7 +21,7 @@ async function deleteHabit(e) {
                 throw Error(r.err); 
             } else {
                 alert('Deleted habit.');
-                window.location.href='./dashboard.html';
+                window.location.href=`https://ittrack.netlify.app/dashboard.html`;
             }
         } catch (err) {
             console.warn(`Error: ${err}`);
@@ -43,10 +43,10 @@ async function editHabit(e) {
                 number_of_rep: e.target.reps.value
             })
         }
-        const r = await fetch(`${process.env.BACKEND}/habits/${id}`, options)
+        const r = await fetch(`https://track-it-habit-backend.herokuapp.com/habits/${id}`, options)
         const data = await r.json()
         if (data.err){ throw Error(data.err); }
-        window.location.href='./dashboard.html';
+        window.location.href=`https://ittrack.netlify.app/dashboard.html`;
     } catch (err) {
         console.warn(`Error: ${err}`);
     }

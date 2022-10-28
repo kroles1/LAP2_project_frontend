@@ -18,7 +18,7 @@ async function deleteHabit(e) {
                 throw Error(r.err); 
             } else {
                 alert('Deleted habit.');
-                window.location.href=`https://ittrack.netlify.app/dashboard.html`;
+                location.href=`./dashboard.html`;
             }
         } catch (err) {
             console.warn(`Error: ${err}`);
@@ -43,7 +43,7 @@ async function editHabit(e) {
         const r = await fetch(`https://track-it-habit-backend.herokuapp.com/habits/${id}`, options)
         const data = await r.json()
         if (data.err){ throw Error(data.err); }
-        window.location.href=`https://ittrack.netlify.app/dashboard.html`;
+        location.href=`./dashboard.html`;
     } catch (err) {
         console.warn(`Error: ${err}`);
     }

@@ -25,10 +25,10 @@ async function submitNewHabit(e) {
     const r = await fetch(`https://track-it-habit-backend.herokuapp.com/habits`, options)
     const data = await r.json()
     if (data.err){ throw Error(data.err); }
-    window.location.href=`https://ittrack.netlify.app/dashboard.html`;
+    location.href=`./dashboard.html`;
 } catch (err) {
     console.warn(`Error: ${err}`);
 }
 
-  // location.href = `https://ittrack.netlify.app/dashboard`; //Should connect to the user dashboard
+  // location.href = `./dashboard`; //Should connect to the user dashboard
 }

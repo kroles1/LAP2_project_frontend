@@ -78,6 +78,7 @@ function appendNewHabit(habitData) {
         plus.classList.add('hardPlus')
         plus.classList.remove('medPlus')
         plus.classList.remove('easyPlus')
+        break;
     }
     plus.textContent = "+";
     if(!completed) {

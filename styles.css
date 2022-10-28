@@ -70,7 +70,6 @@ body:not(#dashboard) {
 .plus {
     width: 10%;
     flex-direction: row;
-    background-color: var(--easy);
     border: solid 1px black;
     border-radius: 10px;
     text-align: center;
@@ -92,6 +91,10 @@ body:not(#dashboard) {
 
 .completed {
     background-color: var(--completed);
+}
+
+.plus:hover {
+    color: white;
 }
 
 #addHabit, #editHabit {

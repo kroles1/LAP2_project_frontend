@@ -31,6 +31,7 @@ body:not(#dashboard) {
     border: solid black 2px;
     border-radius: 20px;
     padding-left: 20px;
+    box-shadow: 10px 10px;
 }
 
 #expBar {
@@ -105,6 +106,7 @@ body:not(#dashboard) {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    box-shadow: 10px 10px;
 }
 
 div#difficulty, div#frequency {
@@ -213,6 +215,10 @@ input[type='submit']#create, input[type='submit']#update {
     border-radius: 5px;
     font-size: 100%;
     padding: 5px 20px;
+}
+
+#firstHabit:hover {
+    color: white;
 }
 
 input[type='button']#delete {
@@ -324,11 +330,13 @@ textarea {
     position: absolute;
     top: 20px;
     right: 10px;
+    box-shadow: 5px 5px;
 }
 
 #out:hover {
-    background-color: white;
-    color: var(--lav);
+    /* background-color: white;
+    color: var(--lav); */
+    box-shadow: none;
 }
 
 .habitDetails {
@@ -359,10 +367,6 @@ textarea {
     margin: 5px;
 }
 
-.pencil {
-    margin-top: 10px;
-}
-
 .streak{
     text-align: right;
 }
@@ -383,8 +387,7 @@ button.add {
 }
 
 button.add:hover {
-    color: var(--lav);
-    background-color: white;
+    color: white;
 }
 
 .hide {

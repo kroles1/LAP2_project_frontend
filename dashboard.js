@@ -109,6 +109,7 @@ function appendNewHabit(habitData) {
     pencil.alt = "edit habit icon";
     pencil.style.width = "40px";
     pencil.style.height = "40px";
+    pencil.style.marginTop = "10px";
     pencil.addEventListener("click", () => {
       // Store
       localStorage.setItem("id", id); //to fix the path

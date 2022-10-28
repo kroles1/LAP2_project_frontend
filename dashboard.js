@@ -64,17 +64,17 @@ function appendNewHabit(habitData) {
     plus.classList.add("plus")
     plus.setAttribute('id', id)
     switch(difficulty){
-      case 'e':
+      case 'easy':
         plus.classList.add('easyPlus')
         plus.classList.remove('medPlus')
         plus.classList.remove('hardPlus')
         break;
-      case 'm':
+      case 'medium':
         plus.classList.add('medPlus')
         plus.classList.remove('easyPlus')
         plus.classList.remove('hardPlus')
         break;
-      case 'h':
+      case 'hard':
         plus.classList.add('hardPlus')
         plus.classList.remove('medPlus')
         plus.classList.remove('easyPlus')

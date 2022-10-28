@@ -92,7 +92,7 @@ function appendNewHabit(habitData) {
       plus.classList.remove('medPlus')
       plus.classList.remove('hardPlus')
       habit.classList.add('completed')
-      plus.classList.add('completed')
+      plus.classList.add('hide')
     }
 
     const habitDetails = document.createElement("div");

@@ -19,8 +19,8 @@ body:not(#dashboard) {
 }
 
 #dashboard {
-    background-color: var(--blue);
-    /* background-color: var(--green); */
+    /* background-color: var(--blue); */
+    background-color: var(--green);
     font-family: 'Poppins', sans-serif;
 }
 
@@ -31,7 +31,7 @@ body:not(#dashboard) {
     border: solid black 2px;
     border-radius: 20px;
     padding-left: 20px;
-    box-shadow: 10px 10px;
+    /* box-shadow: 10px 10px; */
 }
 
 #expBar {
@@ -384,10 +384,11 @@ button.add {
     position: fixed;
     bottom: 25px;
     right: 25px;
+    box-shadow: 2px 2px;
 }
 
 button.add:hover {
-    color: white;
+    box-shadow: none;
 }
 
 .hide {
